@@ -39,7 +39,7 @@ export default function({ fields, onSubmit }) {
             }
             <Button style={styles.button}
                     title="Submit"
-                    onPress={state => onSubmit(state)} /** pass state to submit handler */ />
+                    onPress={() => onSubmit(state)} /** pass state to submit handler */ />
         </View>
     )
 }
