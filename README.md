@@ -15,9 +15,9 @@ React Native Custom Form Component with input validation
 ### fields object to be passed ###
 
 `
-{
-    email: {
-        validators: [validateLength, validateEmail],
+{  
+    email: {  
+        validators: [validateLength, validateEmail],  
         label: 'E-mail',
         props: {
             placeholder: "required"   
