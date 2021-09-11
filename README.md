@@ -14,8 +14,8 @@ React Native Custom Form Component with input validation
 
 ### fields object to be passed ###
 
-`
-{\
+```
+{
     email: {  
         validators: [validateLength, validateEmail],  
         label: 'E-mail',
@@ -32,4 +32,4 @@ React Native Custom Form Component with input validation
         }
     }
 }
-`
+```
