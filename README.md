@@ -1,5 +1,5 @@
-# [Nomad Dsgns](https://www.nomaddsgns.com) Custom Form with input validation
-React Native Custom Form Component with input validation
+# [Nomad Dsgns](https://www.nomaddsgns.com) custom form with input validation #
+React Native custom form Component with input validation
 
 ## Instructions for Use ##
 1. Clone Component to project:
@@ -8,8 +8,8 @@ React Native Custom Form Component with input validation
 2. Import into file where it's to be used in the project:
     - Add to top of file where component will be used: import NomadForm from './NomadForm.js
 3. Add component into project code and pass in required/desired props:
-    - fields (required): an object of elements that contain form input data (example below)
-    - onSubmit (required): Function to be passed for handling submission, recieves an object containing values of inputs as parameter (example below)
+    * fields (required): an object of elements that contain form input data (example below)
+    * onSubmit (required): Function to be passed for handling submission, recieves an object containing values of inputs as parameter (example below)
 
 
 ### Fields object to be passed ###
