@@ -8,8 +8,8 @@ React Native custom form Component with input validation
 2. Import into file where it's to be used in the project:
     - Add to top of file where component will be used: import NomadForm from './NomadForm.js
 3. Add component into project code and pass in required/desired props:
-    * fields (required): an object of elements that contain form input data (example below)
-    * onSubmit (required): Function to be passed for handling submission, recieves an object containing values of inputs as parameter (example below)
+    - fields (required): an object of elements that contain form input data (example below)
+    - onSubmit (required): Function to be passed for handling submission, recieves an object containing values of inputs as parameter (example below)
 
 
 ### Fields object to be passed ###
@@ -46,4 +46,29 @@ Validator functions take the value as an input and returns an error string, or `
 Example of a validator that returns error if input value is less than 5 characters long:
 ```
 const validateLength = (value) => (value?.length < 5 ? 'Value must be greater than 5 characters` : FALSE)
+```
+
+
+### Handling Form Submission ###
+The state is passed directly to the onSubmit function if no Errors are found upon submission. All error fields are passed along as well but can be ignored as the form itself will not allow submission if any errors are found.
+
+Example onSubmit function that can be passed
+```
+const onSubmit = (inputValues) => {
+    console.log(inputValues);
+}
+```
+
+Using the example object from above it will return an object formatted as follows:
+```
+{
+    email: {
+        value: "example@example.com".
+        error: ""
+    },
+    password: {
+        value: "myPassword",
+        error: ""
+    }
+}
 ```

@@ -3,6 +3,8 @@ import { View, TextInput, Text, Button, StyleSheet } from 'react-native';
 
 export default function({ fields, onSubmit }) {
     const [ state, setState ] = useState({}); //initialize form state for field storage
+    const [ isError, setIsError ] = useState(false);
+
     const keys = useRef(Object.keys(fields)); //create array of keys to iterate through
 
 
@@ -22,7 +24,7 @@ export default function({ fields, onSubmit }) {
             { //iterate and create inputs 
                 keys.map(key => {
                     return (<View style={styles.inputContainer}>
-                    <Text style={styles.label}>{fields[key].label || ''}<Text>
+                                <Text style={styles.label}>{fields[key].label || ''}</Text>
                                 <TextInput  key={key} 
                                             style={styles.input}
                                             onChangeText={(value) => {
@@ -40,7 +42,9 @@ export default function({ fields, onSubmit }) {
             }
             <Button style={styles.button}
                     title="Submit"
-                    onPress={() => onSubmit(state)} /** pass state to submit handler */ />
+                    onPress={() => onSubmit(state)} /** pass state to submit handler */
+                    disabled={!isError} />
+            <Text style={styles.errorText}>{isError ? `Please resolve errors before submitting` : ``}</Text>
         </View>
     )
 }
