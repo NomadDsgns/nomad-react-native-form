@@ -53,7 +53,7 @@ export default function({ fields, onSubmit }) {
                                 return;
                             }
                             if (value.error === "" || value.error) { //check if error is present or if field has been validated yet
-                                if (fields[key].validators.length > 0) { //if not validation is required, skip validation for field
+                                if (fields[key].validators.length > 0) { //if no validation is required, skip validation for field
                                     fields[key].validators.map(validator => value.error = validator(value.value)); //validate field and set error message
                                     setIsError(true); //update isError and re-render
                                     return;
