@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { View, TextInput, Text, Button, StyleSheet } from 'react-native';
+import { View, TextInput, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 export default function({ fields, onSubmit }) {
     const [ state, setState ] = useState({}); //initialize form state for field storage
@@ -54,16 +54,31 @@ export default function({ fields, onSubmit }) {
 
 const styles = StyleSheet.create({
     container: {
-
+        padding: 20,
+        borderColor: '#000',
+        borderWidth: 1,
+        borderRadius: 10
     },
     inputContainer: {
-
+        marginBottom: 20,
+        shadowColor: '#0043ad',
+        shadowOffset: {
+            width: 1,
+            height: 2,
+        },
+        shadowOpacity: 0.5,
+        shadowRadius: 5,
     },
     input: {
-
+        height: 40,
+        width: 300,
+        paddingHorizontal: 5,
+        backgroundColor: 'white',
     },
     errorText: {
-        
+        paddingTop: 10,
+        color: "red",
+        textAlign: 'center',
     },
     button: {
 
