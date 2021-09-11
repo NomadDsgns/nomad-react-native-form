@@ -28,9 +28,10 @@ export default function({ fields, onSubmit }) {
                                 <TextInput  key={key} 
                                             style={styles.input}
                                             onChangeText={(value) => {
-                                                let error = ''; //resets error message on each text change
+                                                let error = false; 
                                                 fields[key].validators.map(validator => {
-                                                    error = validator(value) || error; //set error value if validator returns false (validator should return string if error is found, false if not)
+                                                    error = validator(value); //set error value if validator returns false (validator should return string if error is found, false if not)
+                                                    if (error) break; //breaks out of loop upon first error
                                                 });
                                                 setState({ ...state, [key]: { value, error }}); //update state with new values
                                             }}

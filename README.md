@@ -47,7 +47,7 @@ Example of a validator that returns error if input value is less than 5 characte
 ```
 const validateLength = (value) => (value?.length < 5 ? 'Value must be greater than 5 characters` : FALSE)
 ```
-
+**NOTE:** Validator cannot return an empty string or any other falsy value upon validation being successful.
 
 ### Handling Form Submission ###
 The state is passed directly to the onSubmit function if no Errors are found upon submission. All error fields are passed along as well but can be ignored as the form itself will not allow submission if any errors are found.
