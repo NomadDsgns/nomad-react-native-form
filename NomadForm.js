@@ -14,7 +14,7 @@ export default function({ fields, onSubmit }) {
                 [key]: { value: '', error: '' }
             }
         });
-        setState(newState);
+        setState(newState); //update state with initial values of input
     }, [])
 
     return (
@@ -31,7 +31,7 @@ export default function({ fields, onSubmit }) {
                                                 });
                                                 setState({ ...state, [key]: { value, error }}); //update state with new values
                                             }}
-                                            value={state[key].value}
+                                            value={state[key].value}                                            
                                             {...fields[key].props} />
                                 <Text style={styles.errorText}>{state[key].error /* display error message if one is found */}</Text>
                             </View>)
@@ -69,12 +69,16 @@ const styles = StyleSheet.create({
         email: {
             validators: [validateLength, validateEmail],
             label: 'E-mail',
+            props: {
+                placeholder: "required"   
+            }
         },
         password: {
             validators: [validateLength, validateHasNumber],
             label: 'password',
             props: {
-                secureEntry: true
+                secureEntry: true,
+                placeholder: "required"
             }
         }
     }
