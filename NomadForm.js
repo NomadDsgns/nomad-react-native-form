@@ -22,6 +22,7 @@ export default function({ fields, onSubmit }) {
             { //iterate and create inputs 
                 keys.map(key => {
                     return (<View style={styles.inputContainer}>
+                    <Text style={styles.label}>{fields[key].label || ''}<Text>
                                 <TextInput  key={key} 
                                             style={styles.input}
                                             onChangeText={(value) => {
