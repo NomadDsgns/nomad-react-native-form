@@ -8,7 +8,28 @@ React Native Custom Form Component with input validation
 2. Import into file where it's to be used in the project:
     - Add to top of file where component will be used: import NomadForm from './NomadForm.js
 3. Add component into project code and pass in required/desired props:
-    - fields (required): an object of elements that contain form input data
-    - onSubmit (required): Function to be passed for handling submission
+    - fields (required): an object of elements that contain form input data (example below)
+    - onSubmit (required): Function to be passed for handling submission, recieves an object containing values of inputs as parameter (example below)
 
-[Click here](https://reactnative.dev/docs/textinput) For a complete list of available props for react native's default TextInput component.
+
+### fields object to be passed ###
+
+`
+{
+    email: {
+        validators: [validateLength, validateEmail],
+        label: 'E-mail',
+        props: {
+            placeholder: "required"   
+        }
+    },
+    password: {
+        validators: [validateLength, validateHasNumber],
+        label: 'password',
+        props: {
+            secureEntry: true,
+            placeholder: "required"
+        }
+    }
+}
+`
