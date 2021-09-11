@@ -4,7 +4,7 @@ React Native custom form Component with input validation
 ## Instructions for Use ##
 1. Clone Component to project:
     - Command Line: git clone https://github.com/NomadDsgns/nomad-react-native-form.git
-    -or- Copy and paste code into new file
+    - -or- Copy and paste code into new file
 2. Import into file where it's to be used in the project:
     - Add to top of file where component will be used: import NomadForm from './NomadForm.js
 3. Add component into project code and pass in required/desired props:
