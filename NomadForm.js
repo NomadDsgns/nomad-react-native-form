@@ -6,7 +6,7 @@ export default function({ fields, onSubmit }) {
     const keys = useRef(Object.keys(fields)); //create array of keys to iterate through
 
 
-    useEffect(() => {
+    useEffect(() => { //generate state object on component mounting
         let newState = {};
         keys.map(key => { //iterate through keys and create initial state values
             newState = {
@@ -21,25 +21,25 @@ export default function({ fields, onSubmit }) {
         <View style={styles.container}>
             { //iterate and create inputs 
                 keys.map(key => {
-                    <View style={styles.inputContainer}>
-                        <TextInput  key={key}
-                                    style={styles.input}
-                                    onChangeText={(value) => {
-                                        let error = '';
-                                        fields[key].validators.map(validator => {
-                                            error = validator(value) || error; //set error value if validator returns false (validator should return string if error is found, false if not)
-                                        });
-                                        setState({ ...state, [key]: { value, error }}); //update state with new values
-                                    }}
-                                    value={state[key].value}
-                                    {...fields[key].props} />
-                        <Text style={styles.errorText}>{state[key].error}</Text>
-                    </View>
+                    return (<View style={styles.inputContainer}>
+                                <TextInput  key={key} 
+                                            style={styles.input}
+                                            onChangeText={(value) => {
+                                                let error = ''; //resets error message on each text change
+                                                fields[key].validators.map(validator => {
+                                                    error = validator(value) || error; //set error value if validator returns false (validator should return string if error is found, false if not)
+                                                });
+                                                setState({ ...state, [key]: { value, error }}); //update state with new values
+                                            }}
+                                            value={state[key].value}
+                                            {...fields[key].props} />
+                                <Text style={styles.errorText}>{state[key].error /* display error message if one is found */}</Text>
+                            </View>)
                 })
             }
             <Button style={styles.button}
                     title="submit"
-                    onPress={onSubmit} />
+                    onPress={state => onSubmit(state)} /** pass state to submit handler */ />
         </View>
     )
 }
