@@ -15,9 +15,9 @@ React Native custom form Component with input validation
 ### Fields object to be passed ###
 The fields object must be an object containing each input element with all the required information using unique key names for sub-objects that contain the required information.
 
-validators (required): Array of validator functions. See [Validators](#validators) section for more information.
-label (optional): A label for the input field
-props (required): list of props to be passed to the input field, pass empty object if no props are needed. [Click here](https://reactnative.dev/docs/textinput) for a more information on props that can be passed to input fields in react native
+- validators (required): Array of validator functions. See [Validators](#validators) section for more information.
+- label (optional): A label for the input field
+- props (required): list of props to be passed to the input field, pass empty object if no props are needed. [Click here](https://reactnative.dev/docs/textinput) for a more information on props that can be passed to input fields in react native
 
 Example:
 ```
