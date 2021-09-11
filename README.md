@@ -64,11 +64,11 @@ Using the example object from above it will return an object formatted as follow
 {
     email: {
         value: "example@example.com".
-        error: ""
+        error: false
     },
     password: {
         value: "myPassword",
-        error: ""
+        error: false
     }
 }
 ```
