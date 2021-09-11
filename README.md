@@ -17,7 +17,7 @@ React Native Custom Form Component with input validation
 ```
 {
     email: {  
-        validators: [validateLength, validateEmail],  
+        validators: [validateLength, validateEmail],
         label: 'E-mail',
         props: {
             placeholder: "required"   
@@ -32,4 +32,12 @@ React Native Custom Form Component with input validation
         }
     }
 }
+```
+
+### Validators ###
+
+Validator functions take the value as an input and returns an error if found as a string, or `FALSE` if no errors are found.
+Example of a validator that returns error if input value is less than 5 characters long:
+```
+const validateLength = (value) => (value?.length < 5 ? 'Value must be greater than 5 characters` : FALSE)
 ```
