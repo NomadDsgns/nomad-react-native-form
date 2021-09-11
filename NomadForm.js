@@ -10,7 +10,7 @@ export default function({ fields, onSubmit }) {
         let newState = {};
         keys.map(key => { //iterate through keys and create initial state values
             newState = {
-                ...newState,
+                ...newState, //use spread operator to retain previous elements added to object
                 [key]: { value: '', error: '' }
             }
         });
