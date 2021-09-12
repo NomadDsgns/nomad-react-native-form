@@ -63,7 +63,7 @@ Using the example object from above it will return an object formatted as follow
 ```
 {
     email: {
-        value: "example@example.com".
+        value: "example@example.com",
         error: false
     },
     password: {
