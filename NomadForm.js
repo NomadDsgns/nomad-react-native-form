@@ -13,7 +13,7 @@ export default function({ fields, onSubmit }) {
         keys.current.map(key => { //iterate through keys and create initial state values
             newState = {
                 ...newState, //use spread operator to retain previous elements added to object
-                [key]: { value: '', error: '' }
+                [key]: { value: fields.value || '', error: '' }
             }
         });
         setState(newState); //update state with initial values of input
@@ -25,7 +25,7 @@ export default function({ fields, onSubmit }) {
                 keys.current.map(key => {
                     return (<View key={key} 
                                   style={styles.inputContainer}>
-                                <Text style={styles.label}>{fields[key].label || ''}:</Text>
+                                <Text style={styles.label}>{`${fields[key].label}:` || ''}</Text>
                                 <TextInput  style={styles.input}
                                             onChangeText={(value) => {
                                                 let error = false;
@@ -37,7 +37,7 @@ export default function({ fields, onSubmit }) {
                                                 setState({ ...state, [key]: { value, error }}); //update state with new values
                                             }}
                                             value={state[key].value} 
-                                            placeholder={fields[key].required ? "required" : "optional"}                                           
+                                            placeholder={fields[key].required ? "required" : ""}                                           
                                             {...fields[key].props} />
                                 <Text style={styles.errorText}>{state[key].error /* display error message if one is found */}</Text>
                             </View>)
